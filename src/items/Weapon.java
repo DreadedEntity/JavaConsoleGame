@@ -1,13 +1,13 @@
 package items;
 
 public class Weapon extends ItemBase {
-	protected int baseDamage;
-	protected int elementalDamage;
+	protected double baseDamage;
+	protected double elementalDamage;
 	
 	public void info() {
-		System.out.println(name);
-		System.out.println(description);
-		System.out.println(baseDamage);
-		System.out.println(elementalDamage);
+		super.info();
+		System.out.print("\tBaseDamage: " + baseDamage);
+		System.out.print("\tElementalDamage: " + elementalDamage);
+		System.out.println("");
 	}
 }
