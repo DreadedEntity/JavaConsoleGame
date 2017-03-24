@@ -14,6 +14,10 @@ maxHealth = 0;
 currentHealth = 0;
 weapon = new Fist();
 experience = 0;
+
+damage = (strength * 2 * weapon.getBaseDamage()) +
+				 (dexterity * 0.5 * weapon.getBaseDamage()) +
+				 (intelligence * 0 * weapon.getBaseDamage());
 */
 
 public abstract class EntityBase {
@@ -30,7 +34,7 @@ public abstract class EntityBase {
 	
 	protected double experience;
 	
-	protected abstract void attack(EntityBase e);
+	public abstract double attack(EntityBase e);
 	protected abstract void calculateStats();
 	
 	public void info() {

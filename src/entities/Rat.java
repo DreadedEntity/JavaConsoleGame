@@ -17,14 +17,16 @@ public class Rat extends EntityBase {
 	}
 
 	@Override
-	protected void attack(EntityBase e) {
-		// TODO Auto-generated method stub
-		
+	public double attack(EntityBase e) {
+		double damage = (strength * 1 * weapon.getBaseDamage()) +
+				 (dexterity * 0.5 * weapon.getBaseDamage()) +
+				 (intelligence * 0 * weapon.getBaseDamage());
+		System.out.println(this.getClass().getSimpleName() + " attacked with " + weapon.getClass().getSimpleName() + " and dealt " + damage + " damage.");
+		return damage;
 	}
 
 	@Override
 	protected void calculateStats() {
-		// TODO Auto-generated method stub
 		
 	}
 
