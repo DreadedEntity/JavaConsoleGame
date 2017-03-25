@@ -1,8 +1,12 @@
 package entities;
 
+import java.util.ArrayList;
+
 import items.Fist;
+import menus.MenuBase;
 
 public class Player extends EntityBase {
+	public static ArrayList<MenuBase> menu = new ArrayList<MenuBase>();
 	
 	public Player() {
 		vitality = 1;
@@ -16,6 +20,23 @@ public class Player extends EntityBase {
 	
 		weapon = new Fist();
 		experience = 0;
+	}
+	
+	public void chooseMenu(int index, Player p, EntityBase e) {
+		menu.get(index).action(p, e);
+	}
+	
+	public void printMenu(int type) {
+		for (int i = 0; i < menu.size(); i++) {
+			if (type == menu.get(i).getType()) {
+				System.out.print((i+1) + ". " + menu.get(i).getName() + "\t");
+			}
+		}
+		System.out.println("");
+	}
+	
+	public void addMenu(MenuBase newMenu) {
+		menu.add(newMenu);
 	}
 
 	@Override
@@ -31,5 +52,11 @@ public class Player extends EntityBase {
 	@Override
 	protected void calculateStats() {
 		
+	}
+
+	@Override
+	public void killed(EntityBase entity) {
+		super.killed(entity);
+		System.out.println("You were killed.");
 	}
 }

@@ -18,4 +18,12 @@ public class Weapon extends ItemBase {
 	public void setBaseDamage(double baseDamage) {
 		this.baseDamage = baseDamage;
 	}
+
+	public double getElementalDamage() {
+		return elementalDamage;
+	}
+
+	public void setElementalDamage(double elementalDamage) {
+		this.elementalDamage = elementalDamage;
+	}
 }

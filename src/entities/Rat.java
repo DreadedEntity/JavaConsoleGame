@@ -3,7 +3,6 @@ package entities;
 import items.Claw;
 
 public class Rat extends EntityBase {
-	
 	public Rat() {
 		vitality = 4;
 		strength = 2;
@@ -14,6 +13,7 @@ public class Rat extends EntityBase {
 		currentHealth = maxHealth;
 		weapon = new Claw();
 		experience = 10;
+		message = "The rat looks at you with beady black eyes.";
 	}
 
 	@Override
@@ -28,6 +28,11 @@ public class Rat extends EntityBase {
 	@Override
 	protected void calculateStats() {
 		
+	}
+	
+	public void killed(EntityBase entity) {
+		super.killed(entity);
+		System.out.println("You annihalated a nearly harmless rat.");
 	}
 
 }
