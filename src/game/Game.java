@@ -33,7 +33,7 @@ public class Game {
 			
 			int option = 0;
 			System.out.print("What will you do? ");
-			while (option < 1 || option > p.menu.size()) {
+			while (option < 1 || option > Player.menu.size()) {
 				if (kb.hasNextInt()) {
 					option = kb.nextInt();
 				} else {
@@ -48,5 +48,7 @@ public class Game {
 			e.removeHealth(damage);
 		}
 		e.killed(p);
+		
+		kb.close();
 	}
 }

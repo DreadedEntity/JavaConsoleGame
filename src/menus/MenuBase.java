@@ -1,5 +1,7 @@
 package menus;
 
+import java.util.Scanner;
+
 import entities.*;
 
 public abstract class MenuBase {
