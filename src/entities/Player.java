@@ -1,13 +1,14 @@
 package entities;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import items.Fist;
 import menus.MenuBase;
 
 public class Player extends EntityBase {
-	public static ArrayList<MenuBase> menu = new ArrayList<MenuBase>();
+	public static ArrayList<MenuBase> menuBattle = new ArrayList<MenuBase>();
+	public static ArrayList<MenuBase> menuRoom = new ArrayList<MenuBase>();
+	public static ArrayList<MenuBase> menuOverworld = new ArrayList<MenuBase>();
 	
 	public Player() {
 		vitality = 1;
@@ -23,21 +24,52 @@ public class Player extends EntityBase {
 		experience = 0;
 	}
 	
-	public void chooseMenu(int index, Player p, EntityBase e) {
-		menu.get(index).action(p, e);
+	public static void chooseBattleMenu(int index, Player p, EntityBase e) {
+		menuBattle.get(index).action(p, e);
+	}
+	public static void chooseRoomMenu(int index, Player p) {
+		menuRoom.get(index).action(p);
 	}
 	
-	public void printMenu(int type) {
-		for (int i = 0; i < menu.size(); i++) {
-			if (type == menu.get(i).getType()) {
-				System.out.print((i+1) + ". " + menu.get(i).getName() + "\t");
-			}
+	public static void printBattleMenu() {
+		for (int i = 0; i < menuBattle.size(); i++) {
+			System.out.print((i+1) + ". " + menuBattle.get(i).getName() + "\t");
+		}
+		System.out.println("");
+	}
+	public static void printRoomMenu() {
+		for (int i = 0; i < menuRoom.size(); i++) {
+			System.out.print((i+1) + ". " + menuRoom.get(i).getName() + "\t");
+		}
+		System.out.println("");
+	}
+	public static void printOverworldMenu() {
+		for (int i = 0; i < menuOverworld.size(); i++) {
+			System.out.print((i+1) + ". " + menuOverworld.get(i).getName() + "\t");
 		}
 		System.out.println("");
 	}
 	
-	public void addMenu(MenuBase newMenu) {
-		menu.add(newMenu);
+	public static int addBattleMenu(MenuBase newMenu) {
+		menuBattle.add(newMenu);
+		return (menuBattle.size() - 1);
+	}
+	public static void removeBattleMenu(int i) {
+		menuBattle.remove(i);
+	}
+	public static int addRoomMenu(MenuBase newMenu) {
+		menuRoom.add(newMenu);
+		return (menuRoom.size() - 1);
+	}
+	public static void removeRoomMenu(int i) {
+		menuRoom.remove(i);
+	}
+	public static int addOverworldMenu(MenuBase newMenu) {
+		menuOverworld.add(newMenu);
+		return (menuOverworld.size() - 1);
+	}
+	public static void removeOverworldMenu(int i) {
+		menuOverworld.remove(i);
 	}
 
 	@Override
