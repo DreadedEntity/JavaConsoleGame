@@ -6,7 +6,7 @@ import java.util.Scanner;
 import entities.Player;
 import game_util.EnemyContainer;
 
-public class RoomBase {
+public abstract class RoomBase {
 	protected int type;
 	protected String description;
 	protected ArrayList<EnemyContainer> enemies;
@@ -17,9 +17,5 @@ public class RoomBase {
 	public ArrayList<EnemyContainer> getEnemyList() {
 		return enemies;
 	}
-	public void enter(Player p) {
-		Scanner kb = new Scanner(System.in);
-		
-		System.out.println(description);
-	}
+	public abstract void enter(Player p);
 }

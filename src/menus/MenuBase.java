@@ -1,8 +1,7 @@
 package menus;
 
-import java.util.Scanner;
-
-import entities.*;
+import entities.EntityBase;
+import entities.Player;
 
 public abstract class MenuBase {
 	protected int type;
@@ -14,5 +13,7 @@ public abstract class MenuBase {
 	public String getName() {
 		return name;
 	}
-	public abstract void action(Player p, EntityBase e);
+	
+	public void action(Player p, EntityBase e) {}
+	public void action(Player p) {}
 }
