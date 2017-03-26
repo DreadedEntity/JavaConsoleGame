@@ -36,8 +36,12 @@ public class Player extends EntityBase {
 		System.out.println("");
 	}
 	
-	public void addMenu(MenuBase newMenu) {
+	public int addMenu(MenuBase newMenu) {
 		menu.add(newMenu);
+		return (menu.size() - 1);
+	}
+	public void removeMenu(int i) {
+		menu.remove(i);
 	}
 
 	@Override

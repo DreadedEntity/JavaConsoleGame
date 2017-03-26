@@ -4,7 +4,7 @@ public class EnemyContainer {
 	private int number;
 	private int type;
 	
-	public EnemyContainer(int number, int type) {
+	public EnemyContainer(int type, int number) {
 		this.number = number;
 		this.type = type;
 	}
